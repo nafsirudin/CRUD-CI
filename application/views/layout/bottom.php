@@ -17,20 +17,31 @@
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script> 
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
   <script type="text/javascript">
     
   	$(document).ready(function() {
   		$("body").css("overflow", "hidden");
       $('.tabel-sertifikat').DataTable({
-        
         'fnDrawCallback': function (oSettings) {
             $('.dataTables_length').each(function () {
-              $(this).append('<a href="<?= base_url('/') ?>#buat" class="btn btn-default mr-xs" type="button"><span class="fa fa-plus"></span> Tambah</a>')
+              $(this).append('<a href="<?= base_url('/') ?>#buat" class="btn btn-default mr-xs" type="button"><span class="fa fa-plus"></span> Tambah</a> <a href="<?= base_url('/#sertifikat') ?>" class="btn btn-default mr-xs" onclick="'+"printDiv('cetak')"+'" type="button"><span class="fa fa-print"></span> Cetak</a>')
             });
           }
         
       });
   	})
+
+    function printDiv(divName) {
+         var printContents = document.getElementById(divName).innerHTML;
+         var originalContents = document.body.innerHTML;
+
+         document.body.innerHTML = printContents;
+
+         window.print();
+
+         document.body.innerHTML = originalContents;
+    }
 
     function konfirmasi_hapus (ev) {
       ev.preventDefault();

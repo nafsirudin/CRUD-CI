@@ -112,3 +112,27 @@
   </div>
 
 </section>
+
+<div id="cetak">
+  <h2><b>SERTIFIKAT</b></h2>
+  <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th><span>No</span></th>
+          <th><span>Nama</span></th>
+          <th><span>Tanggal</span></th>
+          <th><span>Kegiatan</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php $no =1; foreach($sertifikats->result_array() as $data){ ?>
+        <tr>
+          <td><?= $no++ ?></td>
+          <td class="lalign"><?= $data['nama']; ?></td>
+          <td><?= date('l, d F Y', strtotime($data['tanggal'])); ?></td>
+          <td><?= $data['kegiatan']; ?></td>
+        </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+</div>
