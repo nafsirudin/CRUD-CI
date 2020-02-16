@@ -57,3 +57,5 @@ $route['tambah'] = 'SertifikatController/tambah';
 $route['ubah/(:num)'] = 'SertifikatController/ubah/$1';
 $route['ubah/aksi'] = 'SertifikatController/aksi_ubah';
 $route['hapus/(:num)'] = 'SertifikatController/hapus/$1';
+
+$route['cetak/(:num)'] = 'SertifikatController/cetakbyId/$1';

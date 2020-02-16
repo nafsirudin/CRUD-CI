@@ -36,8 +36,9 @@
           <td><?= date('l, d F Y', strtotime($data['tanggal'])); ?></td>
           <td><?= $data['kegiatan']; ?></td>
           <td>
+            <a href="<?= base_url('cetak/'.$data['id']); ?>" target="_blank" class="text-info"><span class="fa fa-print"></span></a>
             <a href="<?= base_url('ubah/'.$data['id']); ?>#ubah" class="text-info"><span class="fa fa-edit"></span></a>
-            <a href="<?= base_url('hapus/'.$data['id']); ?>" onclick="konfirmasi_hapus(event)" class="text-danger"><span class="fa fa-trash"></span></a>
+            <a href="<?= base_url('hapus/'.$data['id']); ?>" class="text-danger"><span class="fa fa-trash"></span></a>            
           </td>
         </tr>
         <?php } ?>

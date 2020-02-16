@@ -53,4 +53,11 @@ class SertifikatController extends CI_Controller
 		$this->session->set_flashdata('success', 'Data telah terhapus');
 		redirect('/#sertifikat');
 	}
+
+	public function cetakbyId($id)
+	{
+		$where['id'] = $id;
+		$data['sertifikat'] = $this->SertifikatModel->get_by_id($where)->row();
+		$this->load->view('sertifikat/cetakbyId',$data);
+	}
 }
